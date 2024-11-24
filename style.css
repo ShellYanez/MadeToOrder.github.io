@@ -1,0 +1,128 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-image:url('background.png');
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+.top{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    color:white;
+
+}
+li{
+    margin:0px 35px;
+    font-size: 18px;
+    font-weight: 900;
+    color:white;
+}
+li:hover{
+    color:red;
+    text-decoration: underline;
+    text-decoration-style:dotted ;
+    text-underline-position: under;
+
+
+}
+.addcart_loginbutton{
+    background-color:white;
+    width: 170px;
+    height: 40px;
+    position: relative;
+    right: -320px;
+    margin-top:10px ;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    background-color:green;
+    color:white;
+    padding:5px 20px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+.login:hover{
+    background-color:red;
+}
+i:hover{
+    color:red;
+}
+
+
+.heading{
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+.line1,.line2{
+    height: 100px;
+    width: 2px;
+    border-radius: 10px;
+}
+.line1{
+    background-image: linear-gradient(black,white);
+}
+.line2{
+    background-image: linear-gradient(black);
+}
+.SocialMedia i{
+    margin:10px;
+    color:white;
+}
+
+.content{
+    margin-left: 100px;
+}
+p:nth-child(1){
+    background-color:green;
+    color:white;
+    display: inline;
+    padding:5px 10px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+h2{
+    font-family: 'Source Code Pro', monospace;
+    font-size: 70px;
+    color:white;
+}
+.foodplace{
+    font-family: 'Source Code Pro', monospace;
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+p:nth-child(4){
+    width: 400px;
+    font-size: 16px;
+    margin:20px 0px;
+    color:white;    
+}
+button{
+    width: 170px;
+    height: 50px;
+    background-color:red;
+    border:none;
+    border-radius: 50px;
+    color:white;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+button:hover{
+    box-shadow: -5px -5px 15px rgba(0,255,0,0.5),
+    5px 5px 15px rgba(3, 45, 3, 0.5);}
+}
