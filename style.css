@@ -86,7 +86,7 @@ i:hover{
 }
 
 .content{
-    margin-right: 100px;
+    margin-left: 100px;
 }
 p:nth-child(1){
     background-color:green;
