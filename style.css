@@ -5,7 +5,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
+/*pick your algorithm container properties*/
 .container{
     width: 80%;
     margin: 0 auto;
@@ -27,6 +27,7 @@
 .text-left{
     text-align: left;
 }
+/*pick your algorithm container text properties*/
 .text-white{
     color: white;
 }
@@ -35,7 +36,7 @@
     clear: both;
     float: none;
 }
-
+/*menu bar text properties*/
 a{
     color: #1e8e0dfd;
     text-decoration: none;
@@ -44,29 +45,34 @@ a{
 a:hover{
     color: #eac210;
 }
-
+/*pick your algorithm container size properties*/
 .btn{
     padding: 1%;
     border: none;
     font-size: 1rem;
     border-radius: 5px;
 }  
+/*search button color properties*/
 .btn-primary{
+
     background-color: rgb(238, 180, 74);
     color: black;
     cursor: pointer;
 }
+/*order now button color properties when hovering*/
 .btn-primary:hover{
-    color: white;
-    background-color: #ff4757;
+    color: red;
+    background-color: yellow;
 }
+/*properties for the page title e.g"Pick your Algorithm"*/
 h2{
-    color: white;
+    color: green;
     font-size: 2rem;
     margin-bottom: 2%;
 }
+/*font size for container "Breakfasr, Lunch, and Dinner"*/
 h3{
-    font-size: 1.2rem;
+    font-size: 1.7em;
 }
 .float-container{
     position: relative;
@@ -78,11 +84,12 @@ h3{
 }
 fieldset{
     border: 1px solid green ;
-    margin: 5%;
+    margin: 1%;
     padding: 3%;
     border-radius: 5px;
     
 }
+/*main website bg color*/
 body {
     
     background-color: #000000;
@@ -109,7 +116,7 @@ body {
 }
 
 
-/* CSS for Food SEarch Section */
+/* CSS for Food Search Section */
 
 .food-search{
     background-color: grey;
