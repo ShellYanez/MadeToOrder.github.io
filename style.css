@@ -198,6 +198,7 @@ body {
     color: black;                                                                          
 }
 
+.item{ color: black;}
 
 /* CSS for Social */
 .social ul{
@@ -285,4 +286,65 @@ body {
     }
 
 
+}
+
+.cart
+{
+    position: relative; 
+    display: inline-block;
+    z-index: 9999;
+}
+
+.cart span
+{
+    display: flex;
+    width: 22px;
+    height: 22px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 15%; 
+    right: -20px; 
+    z-index: 9998;
+}
+.myCart
+{
+    background-color:  green;
+    color:white;
+    width:400px;
+    inset: 0 0 0 auto; 
+    grid-template-rows: 70px 1fr 70px ;
+    display: grid;
+    position: fixed;
+}
+
+.myCart h1
+{
+    padding:20px; 
+    margin:0;
+    font-weight: 300;
+}
+
+.myCart .btnCart
+{
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.myCart .btnCart button
+{
+    background-color:  #E8BC0E; 
+    border: none; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.myCart .btnCart .close
+{
+    background-color: white; 
 }
