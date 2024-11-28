@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 25, 2024 at 09:15 PM
+-- Generation Time: Nov 28, 2024 at 01:54 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,8 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `MadeToOrder`
 --
-CREATE DATABASE IF NOT EXISTS `MadeToOrder` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `MadeToOrder`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ContactForm`
+--
+
+CREATE TABLE `ContactForm` (
+  `formID` int(11) NOT NULL,
+  `lastName` varchar(20) NOT NULL,
+  `firstName` varchar(20) NOT NULL,
+  `country` varchar(20) NOT NULL,
+  `commentBox` tinytext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ContactForm`
+--
+
+INSERT INTO `ContactForm` (`formID`, `lastName`, `firstName`, `country`, `commentBox`) VALUES
+(1, 'Isom', 'Taylor', 'canada', 'kjghb'),
+(2, 'Harley', 'Joker', 'canada', 'test 2');
 
 -- --------------------------------------------------------
 
@@ -94,6 +114,12 @@ CREATE TABLE `Payment` (
 --
 
 --
+-- Indexes for table `ContactForm`
+--
+ALTER TABLE `ContactForm`
+  ADD PRIMARY KEY (`formID`);
+
+--
 -- Indexes for table `Customer`
 --
 ALTER TABLE `Customer`
@@ -132,6 +158,12 @@ ALTER TABLE `Payment`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `ContactForm`
+--
+ALTER TABLE `ContactForm`
+  MODIFY `formID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Customer`
