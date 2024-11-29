@@ -1,0 +1,75 @@
+[
+    {
+        "id": 101, 
+        "name": "Regs Scrambled Eggs",
+        "price": 2.50,
+        "image":"images/eggs(Scrambled).jpeg"
+    },
+    {
+        "id": 102, 
+        "name": "Homestyle 4-Stack Pancakes",
+        "price": 5.75,
+        "image":"images/stackOfPancakes.jpeg"
+    },
+    {
+        "id": 103, 
+        "name": "Linked-List Sausage",
+        "price": 5.75,
+        "image":"images/linkedSausages.jpeg"
+    },
+    {
+        "id": 201, 
+        "name": "Loopy Soup of the Day",
+        "price": 3.50,
+        "image":"images/soup.jpeg"
+    },
+    {
+        "id": 202, 
+        "name": "Sorted Sandwich",
+        "price": 5.75,
+        "image":"images/sandwich.jpeg"
+    },
+    {
+        "id": 301, 
+        "name": "Chicken Fingers",
+        "price": 8.00,
+        "image":"images/ChickenFingers.jpeg"
+    },
+    {
+        "id": 302, 
+        "name": "Char Cheeseburger",
+        "price": 10.75,
+        "image":"images/cheeseBurger.jpeg"
+    },
+    {
+        "id":303, 
+        "name": "Break Steak",
+        "price": 15.75,
+        "image":"images/steak.jpeg"
+    },
+    {
+        "id": 304, 
+        "name": "String Spaghetti",
+        "price": 15.75,
+        "image":"images/stringSpaghetti.jpeg"
+    },
+    {
+        "id": 401, 
+        "name": "Java Drink",
+        "price": 1.50,
+        "image":"images/javaDrink.jpeg"
+    },
+    {
+        "id": 402, 
+        "name": "Fresh Lemonade",
+        "price": 2.00,
+        "image":"images/freshLemonade.jpeg"
+    },
+    {
+        "id": 403, 
+        "name": "Coding Coke",
+        "price": 2.00,
+        "image":"images/codingCoke.jpeg"
+    }
+
+]

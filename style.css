@@ -11,6 +11,7 @@
     margin: 0 auto;
     padding: 1%;
     border-color: #28363D;
+
 }
 .img-responsive{
     width: 100%;
@@ -158,6 +159,7 @@ body {
 .food-menu{
     background-color: #2F575D;     
     padding: 4% 0;
+
     
 }
 
@@ -167,6 +169,7 @@ body {
     border-radius: 10px; /* Rounded corners for a polished look */
     margin-bottom: 20px; /* Adds spacing below the container */
     overflow: hidden; /* Ensures the content inside is fully contained */
+
 }
 
 .food-menu-box{
@@ -290,7 +293,6 @@ body {
 
 
 }
-<<<<<<< HEAD
 
 .cart
 {
@@ -393,7 +395,7 @@ body {
 background-color: greenyellow;
 }
 
-.cartlist
+.cartList
 {
     overflow: auto; 
 
@@ -408,5 +410,3 @@ body.showCart .container
 {
     transform: translateX(-250px); 
 }
-=======
->>>>>>> cb670cf80928ac446224ced6698d2e9ec95ec22e
