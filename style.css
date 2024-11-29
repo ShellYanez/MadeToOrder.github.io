@@ -10,6 +10,7 @@
     width: 80%;
     margin: 0 auto;
     padding: 1%;
+    border-color: #28363D;
 }
 .img-responsive{
     width: 100%;
@@ -29,7 +30,7 @@
 }
 /*pick your algorithm container text properties*/
 .text-white{
-    color: white;
+    color:#DEE1DD;                                                                                                                             ;
 }
 
 .clearfix{
@@ -38,35 +39,36 @@
 }
 /*menu bar text properties*/
 a{
-    color: #1e8e0dfd;
+    color: #DEE1DD;
     text-decoration: none;
     font-weight: bold;
 }
 a:hover{
-    color: #eac210;
+    color: #6D9197;
 }
 /*pick your algorithm container size properties*/
 .btn{
     padding: 1%;
-    border: none;
+    border: 2px solid;
     font-size: 1rem;
     border-radius: 5px;
+    color:black;
 }  
 /*search button color properties*/
 .btn-primary{
 
-    background-color: rgb(238, 180, 74);
-    color: black;
+    background-color: #28363D;
+    color: #DEE1DD;
     cursor: pointer;
 }
 /*order now button color properties when hovering*/
 .btn-primary:hover{
-    color: red;
-    background-color: yellow;
+    color: #28363D;
+    background-color: #04f9ed;
 }
 /*properties for the page title e.g"Pick your Algorithm"*/
 h2{
-    color: green;
+    color:  #DEE1DD;
     font-size: 2rem;
     margin-bottom: 2%;
 }
@@ -83,7 +85,7 @@ h3{
     left: 40%;
 }
 fieldset{
-    border: 1px solid green ;
+    border: 1 px solid #DEE1DD;
     margin: 1%;
     padding: 3%;
     border-radius: 5px;
@@ -92,7 +94,7 @@ fieldset{
 /*main website bg color*/
 body {
     
-    background-color: #000000;
+    background-color: black;
     
 }
 
@@ -113,13 +115,14 @@ body {
     display: inline;
     padding: 1%;
     font-weight: bold;
+
 }
 
 
 /* CSS for Food Search Section */
 
 .food-search{
-    background-color: white;
+    background-color: #28363D;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -140,7 +143,7 @@ body {
 /* CSS for Categories */
 .categories{
     padding: 4% 0;
-    color:white;
+    color: white;
     
 }
 
@@ -153,13 +156,13 @@ body {
 
 /* CSS for Food Menu */
 .food-menu{
-    background-color: black;     
+    background-color: #2F575D;     
     padding: 4% 0;
     
 }
 
 .menu-container {
-    background-color: #6D9197; 
+    background-color: #658B6F; 
     padding: 20px; /* Adds space inside the container */
     border-radius: 10px; /* Rounded corners for a polished look */
     margin-bottom: 20px; /* Adds spacing below the container */
@@ -171,7 +174,7 @@ body {
     margin: 1%;
     padding: 2%;
     float: left;
-    background-color: white;
+    background-color: #DEE1DD;
     border-radius: 15px;
 }
 
@@ -182,23 +185,23 @@ body {
 
 .food-menu-desc{
     width: 70%;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     float: left;
     margin-left: 8%;
-    color: white;
+    color: #658B6F;
 }
 
 .food-price{
     font-size: 1.2rem;
     margin: 2% 0;
-    color: rgb(229, 229, 5);
+    color: #f19f06;
+    font-weight: bold;
 }
 .food-detail{
-    font-size: 1rem;
-    color: black;                                                                          
+    font-size: 1.2rem;
+    color: #99AEAD,                                                                          
 }
 
-.item{ color: black;}
 
 /* CSS for Social */
 .social ul{
@@ -287,6 +290,7 @@ body {
 
 
 }
+<<<<<<< HEAD
 
 .cart
 {
@@ -404,3 +408,5 @@ body.showCart .container
 {
     transform: translateX(-250px); 
 }
+=======
+>>>>>>> cb670cf80928ac446224ced6698d2e9ec95ec22e
