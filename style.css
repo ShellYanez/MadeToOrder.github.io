@@ -293,6 +293,7 @@ body {
 
 
 }
+<<<<<<< HEAD
 
 .cart
 {
@@ -410,3 +411,5 @@ body.showCart .container
 {
     transform: translateX(-250px); 
 }
+=======
+>>>>>>> 6bb31eda00eec0e4365ee75533e2a7e20f0e7f4e
