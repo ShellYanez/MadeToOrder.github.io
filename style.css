@@ -292,7 +292,7 @@ body {
 {
     position: relative; 
     display: inline-block;
-    z-index: 9999;
+ 
 }
 
 .cart span
@@ -308,17 +308,18 @@ body {
     position: absolute;
     top: 15%; 
     right: -20px; 
-    z-index: 9998;
+
 }
 .myCart
 {
     background-color:  green;
     color:white;
     width:400px;
-    inset: 0 0 0 auto; 
+    inset: 0 -400px 0 auto; 
     grid-template-rows: 70px 1fr 70px ;
     display: grid;
     position: fixed;
+    transition: transform .5s;
 }
 
 .myCart h1
@@ -347,4 +348,59 @@ body {
 .myCart .btnCart .close
 {
     background-color: white; 
+}
+
+.myCart .cartList .item img
+{
+    width: 100x;
+    height: 75px;  
+    padding-left: 10%;
+    padding-top: 5%;
+}
+
+.myCart .cartList .item
+{
+    display:grid; 
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px; 
+    text-align: center;
+    align-items: center;
+}
+
+.cartList .quantity span
+{
+    display: inline-block;
+    width:20px; 
+    height: 20px;
+    background-color: white;
+    color: black; 
+    border-radius: 50%;
+    cursor: pointer; 
+}
+
+.cartList .quantity span:nth-child(2)
+{
+    background-color: transparent;
+    color:black;
+}
+
+.cartList .item:nth-child(even)
+{
+background-color: greenyellow;
+}
+
+.cartlist
+{
+    overflow: auto; 
+
+}
+
+body.showCart .myCart
+{
+    inset:0 0 0 auto; 
+}
+
+body.showCart .container
+{
+    transform: translateX(-250px); 
 }

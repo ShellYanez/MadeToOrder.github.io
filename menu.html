@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="showCart">
     <!-- Navbar Section Starts Here -->
     <section class="navbar">
         <div class="container">
@@ -32,7 +32,7 @@
                         <a href="contact.html">Contact</a>
                     </li>
                     <li>
-                        <a class="cart"><span>0</span>My Cart</a>
+                        <a class = "cart"><span>0</span>My Cart</a>
                     </li>
                 </ul>
             </div>
@@ -306,7 +306,7 @@
                 </div>
                 </div>
 
-        </div>
+            </div>
 
 
             <div class="clearfix"></div>
@@ -337,11 +337,36 @@
     <!-- social Section Ends Here -->
 
 
-    <div class="myCart">
+    <div id=theCart class="myCart">
         <h1>My Cart</h1>
         <div class="cartList">
-            <div class= "item"></div>
-    
+            <div class= "item">
+                <div class="image">
+                    <img src="images/cheeseBurger.jpeg" alt="">
+                </div>
+            
+                <div class = "name">Name</div>
+                <div class ="food-price">$200</div> 
+                <div class="quantity">
+                    <span class ="minus"><</span>
+                    <span>1</span>
+                    <span class = "plus">></span>
+                </div>
+            </div>
+
+            <div class= "item">
+                <div class="image">
+                    <img src="images/cheeseBurger.jpeg" alt="">
+                </div>
+            
+                <div class = "name">Name</div>
+                <div class ="food-price">$200</div> 
+                <div class="quantity">
+                    <span class ="minus"><</span>
+                    <span>1</span>
+                    <span class = "plus">></span>
+                </div>
+            </div>
         </div>
     
         <div class = "btnCart">
