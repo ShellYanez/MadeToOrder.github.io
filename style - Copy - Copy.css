@@ -354,7 +354,7 @@ body {
     padding: 20px; 
 }
 
-.sidebar.open 
+.sidebar .open 
 {
     right:0; 
 }
