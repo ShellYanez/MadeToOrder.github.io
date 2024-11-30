@@ -7,37 +7,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.querySelector('.sidebar'); 
     const closeBtn = document.querySelector(".sidebar-close");
 
-    if (!cartIcon) {
-        console.error("Cart icon not found.");
-    } else {
-        console.log("Cart icon found.");
+    // Ensure cart icon and sidebar exist
+    if (!cartIcon || !sidebar) {
+        console.error("Cart icon or sidebar not found in the DOM.");
+        return;
     }
 
-    if (!sidebar) {
-        console.error("Sidebar not found.");
-    } else {
-        console.log("Sidebar found.");
-    }
-
-    // Toggle the sidebar on cart icon click
+    // Toggle the sidebar
     cartIcon.addEventListener('click', () => {
         console.log("Cart icon clicked.");
-        sidebar.classList.toggle('open'); // Toggle the 'open' class on the sidebar
+        sidebar.classList.toggle('open');
     });
 
-    // Close the sidebar on close button click
+    // Close the sidebar
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             console.log("Sidebar close button clicked.");
-            sidebar.classList.remove('open'); // Remove the 'open' class
+            sidebar.classList.remove('open');
         });
     }
 
-
-    // Handle Add to Cart buttons
+    // Cart functionality
     let cartItems = [];
     let total = 0;
 
+    // Add to Cart functionality
     if (btnAddCart.length > 0) {
         btnAddCart.forEach((button, index) => {
             button.addEventListener('click', () => {
@@ -65,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("No .add-to-cart buttons found in the DOM.");
     }
 
+    // Update the cart UI
     function updateCartUI() {
         updateCartItemCount(cartItems.length);
         updateCartItemList();
@@ -72,11 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateCartItemCount(count) {
-        cartItemCount.textContent = count;
+        const totalItems = cartItems.reduce((sum,item)=>sum + item.quantity,0);
+        cartItemCount.textContent = totalItems;
     }
 
     function updateCartItemList() {
-        cartItemList.innerHTML = "";
+        cartItemList.innerHTML = ""; // Clear previous list
         cartItems.forEach((item, index) => {
             const cartItem = document.createElement("div");
             cartItem.classList.add("cart-item");
@@ -87,10 +83,24 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartItemList.append(cartItem);
         });
+
+        // Add event listeners for remove buttons
+        const removeButtons = document.querySelectorAll(".rmv");
+        removeButtons.forEach(button => {
+            button.addEventListener("click", (event) => {
+                const index = event.target.closest("button").dataset.index;
+                removeItemFromCart(index);
+            });
+        });
+    }
+
+    function removeItemFromCart(index) {
+        const removedItem = cartItems.splice(index, 1)[0];
+        total -= removedItem.price * removedItem.quantity;
+        updateCartUI();
     }
 
     function updateCartTotal() {
         cartItemTotal.textContent = `$${total.toFixed(2)}`;
     }
 });
-  
