@@ -251,14 +251,15 @@ body {
 
 /* CSS for Food Menu */
 .food-menu{
-    background-color: #2F575D;     
+    background-color: black;     
     padding: 4% 0;
 
     
 }
 
 .menu-container {
-    background-color: #658B6F; 
+    background-image: url(images/woodBackground.png); 
+    background-size: cover;
     padding: 20px; /* Adds space inside the container */
     border-radius: 10px; /* Rounded corners for a polished look */
     margin-bottom: 20px; /* Adds spacing below the container */
