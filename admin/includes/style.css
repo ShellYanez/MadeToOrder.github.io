@@ -1,0 +1,196 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 15rem;
+    background-color: #2f3b52;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    color: #f0ad4e;
+}
+
+.main-content {
+    margin-left: 17rem;
+    padding: 20px;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a5d73;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.top-nav span {
+    font-size: 18px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dashboard {
+    margin-top: 30px;
+}
+
+.dashboard h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* CSS for addMenuItems page section */
+.form-container{
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #a9a9a9;
+}
+.form-left{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+.form-left-title h2{
+    font-weight: 600;
+    color: #2f3b52;
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+.form-left-title hr{
+    border: none;
+    width: 120px;
+    height: 5px;
+    background-color: #6D9197;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.form-inputs{
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: #6D9197;
+    border-radius: 50px;
+}
+.form-left textarea{
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
+}
+.form-inputs:focus{
+    border: 2px solid #2f3b52;
+}
+.form-inputs::placeholder{
+    color: #a9a9a9;
+}
+.form-left button{
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #fff;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #ebc784, #1b363b);
+    cursor: pointer;
+}
+.form-left button img{
+    height: 15px
+}
+.form-right img{
+    width: 500px;
+}
+@media (max-width:800px){
+    .form-inputs{
+        width: 80vw;
+    }
+    .form-right{
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
