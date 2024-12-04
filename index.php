@@ -55,7 +55,7 @@
             </div>
             </a>
 
-            <a href="menu.php">
+            <a href="menu.php#Lunch">
             <div class="box-3 float-container">
                 <img src="images/genericLunch.jpeg" alt="Lunch" class="img-responsive img-curve">
 
@@ -63,7 +63,7 @@
             </div>
             </a>
 
-            <a href="menu.php">
+            <a href="menu.php#Dinner">
             <div class="box-3 float-container">
                 <img src="images/genericDinner.jpeg" alt="Dinner" class="img-responsive img-curve">
 
