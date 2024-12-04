@@ -27,16 +27,16 @@
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="menu.html">Menu</a>
+                        <a href="menu.php">Menu</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                     <li>
-                        <a class = "cart-icon" id="shoppingCart"><span>0</span>My Cart</a>
+                        <a href ="#" class = "cart-icon" id="shoppingCart"><span>0</span>My Cart</a>
                     </li>
                 </ul>
             </div>

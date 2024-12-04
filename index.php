@@ -23,16 +23,16 @@
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="menu.html">Menu</a>
+                        <a href="menu.php">Menu</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                     <li>
-                        <a href="menu.html#shoppingCart">My Cart</a>
+                        <a href ="#" class = "cart-icon" id="shoppingCart"><span>0</span>My Cart</a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +47,7 @@
         <div class="container">
             <h2 class="text-center">Pick Your Algorithm</h2>
 
-            <a href="menu.html#Breakfast">
+            <a href="menu.php#Breakfast">
             <div class="box-3 float-container">
                 <img src="images/genericBreakfast.png" alt="Breakfast" class="img-responsive img-curve">
 
@@ -55,7 +55,7 @@
             </div>
             </a>
 
-            <a href="menu.html#Lunch">
+            <a href="menu.php">
             <div class="box-3 float-container">
                 <img src="images/genericLunch.jpeg" alt="Lunch" class="img-responsive img-curve">
 
@@ -63,7 +63,7 @@
             </div>
             </a>
 
-            <a href="menu.html#Dinner">
+            <a href="menu.php">
             <div class="box-3 float-container">
                 <img src="images/genericDinner.jpeg" alt="Dinner" class="img-responsive img-curve">
 

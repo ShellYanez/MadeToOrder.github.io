@@ -23,16 +23,16 @@
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="foods.html">Menu</a>
+                        <a href="menu.php">Menu</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                     <li>
-                        <a href=">x">My Cart</a>
+                        <a href ="#" class = "cart-icon" id="shoppingCart"><span>0</span>My Cart</a>
                     </li>
                 </ul>
             </div>
@@ -46,7 +46,10 @@
     <section class="food-search text-center">
         <div class="container">
             
-            <h2>Foods on Your Search <a href="#" class="text-white">"Dinner"</a></h2>
+            <form action="food-search.php" method="POST">
+                <input type="search" name="search" placeholder="Search for Food.." required>
+                <input type="submit" name="submit" value="Search" class="btn btn-primary">
+            </form>
 
         </div>
     </section>
@@ -61,65 +64,14 @@
 
             <div class="food-menu-box">
                 <div class="food-menu-img">
-                    <img src="https://placehold.jp/150x150.png" alt="Name of food" class="img-responsive img-curve">
+                    <img src="https://placehold.jp/150x150.png" alt="Name of Food" class="img-responsive img-curve">
                 </div>
 
                 <div class="food-menu-desc">
                     <h4>Food Title</h4>
                     <p class="food-price">Price</p>
                     <p class="food-detail">
-                        This is where food detail goes
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="https://placehold.jp/150x150.png" alt="Name of food" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">Price</p>
-                    <p class="food-detail">
-                        This is where food detail goes
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="https://placehold.jp/150x150.png" alt="Name of food" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">Price</p>
-                    <p class="food-detail">
-                        This is where food detail goes
-                    </p>
-                    <br>
-
-                    <a href="#" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
-
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="https://placehold.jp/150x150.png" alt="Name of food" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">Price</p>
-                    <p class="food-detail">
-                        This is where food detail goes
+                        This is where info about food goes
                     </p>
                     <br>
 
@@ -133,10 +85,10 @@
                 </div>
 
                 <div class="food-menu-desc">
-                    <h4>Food Title</h4>
+                    <h4>SFood Title</h4>
                     <p class="food-price">Price</p>
                     <p class="food-detail">
-                        This is where food detail goes
+                        This is where info about food goes
                     </p>
                     <br>
 
@@ -146,14 +98,65 @@
 
             <div class="food-menu-box">
                 <div class="food-menu-img">
-                    <img src="https://placehold.jp/150x150.png" alt="Chicke Hawain Momo" class="img-responsive img-curve">
+                    <img src="https://placehold.jp/150x150.png" alt="Name of food" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>Food Title</h4>
+                    <p class="food-price">Price</p>
+                    <p class="food-detail">
+                        This is where info about food goes
+                    </p>
+                    <br>
+
+                    <a href="#" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="https://placehold.jp/150x150.png" alt="Name of food" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>Food Title</h4>
+                    <p class="food-price">Price</p>
+                    <p class="food-detail">
+                        This is where info about food goes
+                    </p>
+                    <br>
+
+                    <a href="#" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="https://placehold.jp/150x150.png" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4>Food Title</h4>
+                    <p class="food-price">Price</p>
+                    <p class="food-detail">
+                        This is where info about food goes
+                    </p>
+                    <br>
+
+                    <a href="#" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="https://placehold.jp/150x150.png" alt="Name of food" class="img-responsive img-curve">
                 </div>
 
                 <div class="food-menu-desc">
                     <h4>Name of food</h4>
-                    <p class="food-price">price</p>
+                    <p class="food-price">Price</p>
                     <p class="food-detail">
-                        info about food
+                        This is where info about food goes
                     </p>
                     <br>
 
@@ -163,9 +166,6 @@
 
 
             <div class="clearfix"></div>
-
-            
-
         </div>
 
     </section>
@@ -188,6 +188,5 @@
         </div>
     </section>
     <!-- social Section Ends Here -->
-
 </body>
 </html>
