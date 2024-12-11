@@ -5,6 +5,13 @@ session_start();
 //- open link to database 
 include ('admin/config/dbcon.php');
 
+
+//write queries for each cart item
+$itemQuery = "SELECT * FROM cart";
+
+//fetch products from database
+$itemResult = $con->query($itemQuery);
+
 //end php definitions
 ?> 
 
@@ -47,13 +54,11 @@ include ('admin/config/dbcon.php');
                         <a href="contact.php">Contact</a>
                     </li>
                     <li>
-<!--select query-->
-<?php
-$total_quantity_query = mysqli_query($con, "SELECT SUM(quantity) AS total_quantity FROM `cart`");
-$total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ?? 0;
-
-?>
-
+                        <!--select query-->
+                        <?php
+                        $total_quantity_query = mysqli_query($con, "SELECT SUM(quantity) AS total_quantity FROM `cart`");
+                        $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ?? 0;
+                        ?>
                         <a href ="cart.php" class = "cart-icon" id="shoppingCart"><span><?php echo $total_quantity; ?></span>My Cart</a>
                     </li>
                 </ul>
@@ -63,32 +68,51 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
     </section>
     <!--NavBar section ends -->
 
-    <!--NavBar section ends -->
-    <section class="food-menu">
+
+    <section class="cart-items">
         <div class= "container">
-        <h2 class="text-center">My Cart</h2>
-        <br>
-        <div class="menu-container">
-        <div class="food-menu-box-cart">
-        <table >
-            <thead>
-                <tr>
-                <th>SR#</th>
-                <th>Food Item</th>
-                <th>Food Image</th>
-                <th>Food Quantity</th>
-                <th>Total Price</th>
-                <th>Action</th>
-</tr>
-            </thead>
-        
-            </table>
+            <h2 class="text-center">My Cart</h2>
+            <br>
+                <div class="menu-container">
+                    <div class="food-menu-box-cart">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <th>SR#</th>
+                                    <th>Food Item</th>
+                                    <th>Food Image</th>
+                                    <th>Food Quantity</th>
+                                    <th>Total Price</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            
+                            <!-- opening php code to pull from database-->
+                            <?php
+                            //pull each item
+                            if ($itemResult->num_rows > 0) {
+                                while($row = $itemResult->fetch_assoc()) {
+                                    echo"<thead>"; 
+                                        echo"<th>Filler</th>";
+                                        echo"<th>".$row['name']."</th>";
+                                        echo"<th><div class='food-menu-img'>";
+                                            echo "<img class='img-responsive img-curve' src='admin/uploads/".$row['image']."'>";
+                                            echo "</div></th>";
+                                        echo"<th>".$row['quantity']."</th>";
+                                        echo"<th>".($row['quantity']*$row['price'])."</th>";
+                                    echo "</thead>";
+                                }
+                            }
+                            
+                            ?>
+                            
+                        </table>
             
-        </div>
-        </div>
+                    </div>
+                </div>
         </div>
             
-         </section>
+    </section>
 
 
 
