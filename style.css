@@ -388,7 +388,12 @@ body {
     
 }
 .cart-items th{
-    border: 5px solid black;
+    color: #a9a9a9;
+    
+}
+.cart-items thead{
+    border-radius: 50px;
+    background-color: white;
 }
 
 .table_bottom
@@ -413,7 +418,6 @@ body {
 }
 .update_quantity
 {
-
     padding: 0.5rem; 
     margin: 1rem 0; 
 }
@@ -428,12 +432,8 @@ body {
     justify-content: space-between;
     padding: 10px 5px;
     border-radius: 5px;
-    color: #2F575D;;
+    color: #2F575D;
     border: none; 
-}
-/*for the text color*/
-.cart-items th{
-    color: white;
 }
 
 .food-menu-box-cart thead{

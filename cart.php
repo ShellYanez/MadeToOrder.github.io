@@ -92,14 +92,21 @@ $itemResult = $con->query($itemQuery);
                             //pull each item
                             if ($itemResult->num_rows > 0) {
                                 while($row = $itemResult->fetch_assoc()) {
-                                    echo"<thead>"; 
+                                     echo"<thead>"; 
+                                        //SR#
                                         echo"<th>Filler</th>";
+                                        //name
                                         echo"<th>".$row['name']."</th>";
+                                        //image
                                         echo"<th><div class='food-menu-img'>";
                                             echo "<img class='img-responsive img-curve' src='admin/uploads/".$row['image']."'>";
                                             echo "</div></th>";
+                                        //quantity
                                         echo"<th>".$row['quantity']."</th>";
-                                        echo"<th>".($row['quantity']*$row['price'])."</th>";
+                                        //price
+                                        echo"<th>$".($row['quantity']*$row['price'])."</th>";
+                                        //Action
+                                        echo"<th>Filler</th>";
                                     echo "</thead>";
                                 }
                             }
