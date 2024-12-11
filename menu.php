@@ -16,9 +16,47 @@ $breakfastResult = $con->query($breakfastQuery);
 $lunchResult = $con->query($lunchQuery);
 $dinnerResult = $con->query($dinnerQuery);
 $drinksResult = $con->query($drinksQuery);
+?>
 
+
+
+
+
+<?php
+//add to cart 
+
+// Add to cart logic
+if (isset($_POST['add_to_cart'])) {
+    $item_name = $_POST['item_name'];
+    $item_price = $_POST['item_price']; // Corrected input name
+    $item_image = $_POST['item_image'];
+    $product_quantity = 1;
+
+ 
+    // select cart data querey
+    $select_cart = mysqli_query($con, "SELECT * FROM `cart` WHERE name='$item_name'"); 
+    if(mysqli_num_rows($select_cart)>0)
+    {
+        $update_quantity = mysqli_query($con, "UPDATE `cart` SET quantity = quantity + 1 WHERE name = '$item_name'" ); 
+        $display_message[]="Cart updated Successfully";
+    } else
+    {
+          // Insert cart data
+        $insert_items = mysqli_query($con, "INSERT INTO `cart` (name, price, image, quantity) VALUES ('$item_name', '$item_price', '$item_image', '$product_quantity')");
+        
+        if (!$insert_items) {
+            echo "Error inserting item: " . mysqli_error($con);
+        } else {
+            $display_message[]="Added Item to Cart Successfully";
+        }
+    
+    }
+
+    
+
+}
+?>
 //end php definitions
-?> 
 
 <!-- Begin html code for website design -->
 <!DOCTYPE html>
@@ -27,7 +65,7 @@ $drinksResult = $con->query($drinksQuery);
     <meta charset="UTF-8">
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Website</title>
+    <title>Menu</title>
 
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="style.css">
@@ -59,7 +97,14 @@ $drinksResult = $con->query($drinksQuery);
                         <a href="contact.php">Contact</a>
                     </li>
                     <li>
-                        <a href ="#" class = "cart-icon" id="shoppingCart"><span>0</span>My Cart</a>
+<!--select query-->
+<?php
+$total_quantity_query = mysqli_query($con, "SELECT SUM(quantity) AS total_quantity FROM `cart`");
+$total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ?? 0;
+
+?>
+
+                        <a href ="cart.php" class = "cart-icon" id="shoppingCart"><span><?php echo $total_quantity; ?></span>My Cart</a>
                     </li>
                 </ul>
             </div>
@@ -70,9 +115,13 @@ $drinksResult = $con->query($drinksQuery);
 
 
 
+
+
+
     <!-- fOOD MEnu Section Starts Here -->
     <main>
     <section class="food-menu">
+
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
             <br>
@@ -85,7 +134,7 @@ $drinksResult = $con->query($drinksQuery);
                 //pull each value
                 if ($breakfastResult->num_rows > 0) {
                     while($row = $breakfastResult->fetch_assoc()) {
-                        echo "<div class='food-menu-box''>";
+                        echo "<div class='food-menu-box'>";
 
                             //the image
                             echo "<div class='food-menu-img'>";
@@ -97,9 +146,16 @@ $drinksResult = $con->query($drinksQuery);
                                 echo "<h4 class= 'item'>".$row['ItemName']."</h4>";
                                 echo "<p class='food-price'>$".$row['Price']."</p>";
                                 echo "<p class='food-detail'>".$row['description']."</p>";
+
+                                echo "<form method='POST' action=''>";
+                                echo "<input type='hidden' name='item_name' value='".$row['ItemName']."'>";
+                                echo "<input type='hidden' name='item_price' value='".$row['Price']."'>";
+                                echo "<input type='hidden' name='item_image' value='".$row['image']."'>";
+                                echo "<input type='submit' name='add_to_cart' class='add-to-cart' value='Add to Cart'>";
+                                echo "</form>";
                                 echo "<br>";
-                                echo "<button class='add-to-cart'>Add to Cart</button>";
                             echo "</div>";//end food-menu-desc
+
                         echo "</div>";//end food-menu-box
                     }//end while
                 }//end if
@@ -121,7 +177,7 @@ $drinksResult = $con->query($drinksQuery);
                 //pull each value
                 if ($lunchResult->num_rows > 0) {
                     while($row = $lunchResult->fetch_assoc()) {
-                        echo "<div class='food-menu-box''>";
+                        echo "<div class='food-menu-box'>";
 
                             //the image
                             echo "<div class='food-menu-img'>";
@@ -133,9 +189,16 @@ $drinksResult = $con->query($drinksQuery);
                                 echo "<h4 class= 'item'>".$row['ItemName']."</h4>";
                                 echo "<p class='food-price'>$".$row['Price']."</p>";
                                 echo "<p class='food-detail'>".$row['description']."</p>";
+
+                                echo "<form method='POST' action=''>";
+                                echo "<input type='hidden' name='item_name' value='".$row['ItemName']."'>";
+                                echo "<input type='hidden' name='item_price' value='".$row['Price']."'>";
+                                echo "<input type='hidden' name='item_image' value='".$row['image']."'>";
+                                echo "<input type='submit' name='add_to_cart' class='add-to-cart' value='Add to Cart'>";
+                                echo "</form>";
                                 echo "<br>";
-                                echo "<button class='add-to-cart'>Add to Cart</button>";
                             echo "</div>";//end food-menu-desc
+
                         echo "</div>";//end food-menu-box
                     }//end while
                 }//end if
@@ -157,7 +220,7 @@ $drinksResult = $con->query($drinksQuery);
                 //pull each value
                 if ($dinnerResult->num_rows > 0) {
                     while($row = $dinnerResult->fetch_assoc()) {
-                        echo "<div class='food-menu-box''>";
+                        echo "<div class='food-menu-box'>";
 
                             //the image
                             echo "<div class='food-menu-img'>";
@@ -169,9 +232,16 @@ $drinksResult = $con->query($drinksQuery);
                                 echo "<h4 class= 'item'>".$row['ItemName']."</h4>";
                                 echo "<p class='food-price'>$".$row['Price']."</p>";
                                 echo "<p class='food-detail'>".$row['description']."</p>";
+
+                                echo "<form method='POST' action=''>";
+                                echo "<input type='hidden' name='item_name' value='".$row['ItemName']."'>";
+                                echo "<input type='hidden' name='item_price' value='".$row['Price']."'>";
+                                echo "<input type='hidden' name='item_image' value='".$row['image']."'>";
+                                echo "<input type='submit' name='add_to_cart' class='add-to-cart' value='Add to Cart'>";
+                                echo "</form>";
                                 echo "<br>";
-                                echo "<button class='add-to-cart'>Add to Cart</button>";
                             echo "</div>";//end food-menu-desc
+
                         echo "</div>";//end food-menu-box
                     }//end while
                 }//end if
@@ -193,7 +263,7 @@ $drinksResult = $con->query($drinksQuery);
                 //pull each value
                 if ($drinksResult->num_rows > 0) {
                     while($row = $drinksResult->fetch_assoc()) {
-                        echo "<div class='food-menu-box''>";
+                        echo "<div class='food-menu-box'>";
 
                             //the image
                             echo "<div class='food-menu-img'>";
@@ -205,9 +275,16 @@ $drinksResult = $con->query($drinksQuery);
                                 echo "<h4 class= 'item'>".$row['ItemName']."</h4>";
                                 echo "<p class='food-price'>$".$row['Price']."</p>";
                                 echo "<p class='food-detail'>".$row['description']."</p>";
+
+                                echo "<form method='POST' action=''>";
+                                echo "<input type='hidden' name='item_name' value='".$row['ItemName']."'>";
+                                echo "<input type='hidden' name='item_price' value='".$row['Price']."'>";
+                                echo "<input type='hidden' name='item_image' value='".$row['image']."'>";
+                                echo "<input type='submit' name='add_to_cart' class='add-to-cart' value='Add to Cart'>";
+                                echo "</form>";
                                 echo "<br>";
-                                echo "<button class='add-to-cart'>Add to Cart</button>";
                             echo "</div>";//end food-menu-desc
+
                         echo "</div>";//end food-menu-box
                     }//end while
                 }//end if
@@ -246,7 +323,7 @@ $drinksResult = $con->query($drinksQuery);
     <!-- social Section Ends Here -->
 
     <!-----------Cart SIDEBAR------------->
-    <div class="sidebar" id = "sidebar">
+  <!--  <div class="sidebar" id = "sidebar">
         <div class="sidebar-close">
             <i class = "fa-solid fa-close"></i>
         </div>
@@ -264,7 +341,7 @@ $drinksResult = $con->query($drinksQuery);
     
         </div>
     </div>
-
+            -->
 
 
 

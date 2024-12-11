@@ -276,6 +276,14 @@ body {
     border-radius: 15px;
 }
 
+.food-menu-cart{
+    width: 41%;
+    margin: 1%;
+    padding: 2%;
+    float: center;
+    background-color: #DEE1DD;
+    border-radius: 15px;
+}
 .food-menu-img{
     width: 20%;
     float: left;
@@ -414,35 +422,49 @@ body {
 
 }
 
-.sidebar
-{
-    width: 300px; 
-    height:100%; 
-    position: fixed; 
-    top: 0; 
-    right: -350px; 
-    background-color: #28363D;
-    color: white;
-    box-shadow: -4px 0 6px rgba(0,0,0,0.1);
-    transition: right .3s ease-in-out; 
-    z-index: 1000;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    padding: 20px; 
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.sidebar.open 
-{
-    right:0; 
+table, th, td {
+    border: 1px solid black;
 }
 
-.sidebar-close
-{
-    position: absolute; 
-    right: 20px;  
-    cursor: pointer; 
-    top: 10px; 
+th, td {
+    padding: 10px;
+    text-align: center;
 }
+
+.table_bottom
+{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    margin: 1rem 0 3rem 0 ;
+}
+
+.quantity_box
+{
+    display:flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+.quantity_box input
+{
+    width: 40%; 
+    padding: 0.5rem; 
+}
+.update_quantity
+{
+
+    padding: 0.5rem; 
+    margin: 1rem 0; 
+}
+
 
 .cart-items
 {
@@ -464,12 +486,7 @@ body {
     background-color:  #DEE1DD; 
 }
 
-.sidebar--footer
-{
-    position: absolute; 
-    bottom: 50px; 
-    width: 88%; 
-}
+
 
 .total--amount
 {
@@ -501,4 +518,16 @@ body {
     cursor: pointer; 
     border-radius: 5px;
     padding:10px; 
+}
+
+
+.display_message {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: block; /* Ensure it is not set to 'none' */
 }
