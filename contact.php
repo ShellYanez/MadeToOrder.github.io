@@ -30,7 +30,12 @@
                         <a href="contact.php">Contact</a>
                     </li>
                     <li>
-                        <a href ="#" class = "cart-icon" id="shoppingCart"><span>0</span>My Cart</a>
+                        <!--select query-->
+                        <?php
+                        $total_quantity_query = mysqli_query($con, "SELECT SUM(quantity) AS total_quantity FROM `cart`");
+                        $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ?? 0;
+                        ?>
+                        <a href ="cart.php" class = "cart-icon" id="shoppingCart"><span><?php echo $total_quantity; ?></span>My Cart</a>
                     </li>
                 </ul>
             </div>
