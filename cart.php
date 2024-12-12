@@ -6,11 +6,16 @@ session_start();
 include ('admin/config/dbcon.php');
 
 
-//write queries for each cart item
-$itemQuery = "SELECT * FROM cart";
+//update query 
+if(isset($_POST['update_product_quantity']))
+{
+    $update_val = $_POST['update_quantity']; 
+   // echo $update_val; 
+   $update_id= $_POST['update_quantity_id']; 
 
-//fetch products from database
-$itemResult = $con->query($itemQuery);
+   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET price = ((price / quantity) * $update_val), quantity = $update_val WHERE id = $update_id");
+
+}
 
 //end php definitions
 ?> 
@@ -54,11 +59,13 @@ $itemResult = $con->query($itemQuery);
                         <a href="contact.php">Contact</a>
                     </li>
                     <li>
-                        <!--select query-->
-                        <?php
-                        $total_quantity_query = mysqli_query($con, "SELECT SUM(quantity) AS total_quantity FROM `cart`");
-                        $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ?? 0;
-                        ?>
+<!--select query-->
+<?php
+$total_quantity_query = mysqli_query($con, "SELECT SUM(quantity) AS total_quantity FROM `cart`");
+$total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ?? 0;
+
+?>
+
                         <a href ="cart.php" class = "cart-icon" id="shoppingCart"><span><?php echo $total_quantity; ?></span>My Cart</a>
                     </li>
                 </ul>
@@ -68,58 +75,81 @@ $itemResult = $con->query($itemQuery);
     </section>
     <!--NavBar section ends -->
 
-
-    <section class="cart-items">
+    <!--NavBar section ends -->
+    <section class="food-menu">
         <div class= "container">
-            <h2 class="text-center">My Cart</h2>
-            <br>
-                <div class="menu-container">
-                    <div class="food-menu-box-cart">
-                        <table >
-                            <thead>
-                                <tr>
-                                    <th>SR#</th>
-                                    <th>Food Item</th>
-                                    <th>Food Image</th>
-                                    <th>Food Quantity</th>
-                                    <th>Total Price</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            
-                            <!-- opening php code to pull from database-->
-                            <?php
-                            //pull each item
-                            if ($itemResult->num_rows > 0) {
-                                while($row = $itemResult->fetch_assoc()) {
-                                     echo"<thead>"; 
-                                        //SR#
-                                        echo"<th>Filler</th>";
-                                        //name
-                                        echo"<th>".$row['name']."</th>";
-                                        //image
-                                        echo"<th><div class='food-menu-img'>";
-                                            echo "<img class='img-responsive img-curve' src='admin/uploads/".$row['image']."'>";
-                                            echo "</div></th>";
-                                        //quantity
-                                        echo"<th>".$row['quantity']."</th>";
-                                        //price
-                                        echo"<th>$".($row['quantity']*$row['price'])."</th>";
-                                        //Action
-                                        echo"<th>Filler</th>";
-                                    echo "</thead>";
-                                }
-                            }
-                            
-                            ?>
-                            
-                        </table>
+        <h2 class="text-center">My Cart</h2>
+        <br>
+        <div class="menu-container">
+        <div class="food-menu-box-cart">
+        <table >
+            <?php
+               $select_cart_products = mysqli_query($con, "SELECT * from `cart`"); 
+               if(mysqli_num_rows($select_cart_products) > 0)
+               {
+                echo "<thead>
+                <tr>
+                <th>SR#</th>
+                <th>Food Item</th>
+                <th>Food Image</th>
+                <th>Food Quantity</th>
+                <th>Total Price</th>
+                <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>"; 
+                while($fetch_cart_products=mysqli_fetch_assoc($select_cart_products))
+                {
+            ?>
+                    <tr>
+                    <td><?php echo $fetch_cart_products['id']?></td>
+                    <td><?php echo $fetch_cart_products['name']?></td>
+                    <td><div class="food-menu-img-cart"><img src="admin/uploads/<?php echo $fetch_cart_products['image']?>" alt="soup" class='img-responsive img-curve'></div></td>
+                    <td>
+                        <form action="" method ="post">
+                            <input type="hidden" value="<?php echo $fetch_cart_products['id']?>" name="update_quantity_id">
+
+                        <div class = "quantity-box">
+                            <input type="number" min="1" value="<?php echo $fetch_cart_products['quantity']?>" name="update_quantity">
+                            <input type="submit" class= "update-quantity" value="Update" name="update_product_quantity">
+                        </div>
+                        </form>
+                        </td>
+                    <td>$<?php echo $fetch_cart_products['price']?></td>
+                    <td>
+                        <a href="">
+                        <i class="fas fa-trash" style="color: DogerBlue;"></i>Remove</a>
+                    </td>
+                </tr>
+                
+            <?php
+                }
+                    }     else
+                {
+                    echo "Your cart is empty.";
+                 }
+            ?>
             
-                    </div>
-                </div>
+
+            </tbody>
+            </table>
+            
+<!--bottom section-->
+<div class=table_bottom id="total">
+<a href="menu.php" class = "bottom_btn">Continue Shopping</a>
+<a href="" class="bottom_btn">Cart Total: <span>$ 12.00</span></p>
+<a href="checkout.php" class = "bottom_btn">Proceed to Checkout</a>
+</div>
+
+<div class= "delete_all_btn">
+<i class="fas fa-trash"></i>Remove All</a>
+</div>
+
+        </div>
+        </div>
         </div>
             
-    </section>
+         </section>
 
 
 

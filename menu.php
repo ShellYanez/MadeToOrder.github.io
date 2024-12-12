@@ -30,6 +30,7 @@ if (isset($_POST['add_to_cart'])) {
     $item_name = $_POST['item_name'];
     $item_price = $_POST['item_price']; // Corrected input name
     $item_image = $_POST['item_image'];
+    $item_id = $_POST['item_id'];
     $product_quantity = 1;
 
  
@@ -39,10 +40,12 @@ if (isset($_POST['add_to_cart'])) {
     {
         $update_quantity = mysqli_query($con, "UPDATE `cart` SET quantity = quantity + 1 WHERE name = '$item_name'" ); 
         $display_message[]="Cart updated Successfully";
+
+        $update_price =  mysqli_query($con, "UPDATE `cart` SET price = (price / (quantity-1)) * (quantity) WHERE name = '$item_name'" ); 
     } else
     {
           // Insert cart data
-        $insert_items = mysqli_query($con, "INSERT INTO `cart` (name, price, image, quantity) VALUES ('$item_name', '$item_price', '$item_image', '$product_quantity')");
+        $insert_items = mysqli_query($con, "INSERT INTO `cart` (name, price, image, quantity, id) VALUES ('$item_name', '$item_price', '$item_image', '$product_quantity', '$item_id')");
         
         if (!$insert_items) {
             echo "Error inserting item: " . mysqli_error($con);
@@ -148,6 +151,7 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
                                 echo "<p class='food-detail'>".$row['description']."</p>";
 
                                 echo "<form method='POST' action=''>";
+                                echo "<input type='hidden' name='item_id' value='".$row['MenuItemID']."'>";
                                 echo "<input type='hidden' name='item_name' value='".$row['ItemName']."'>";
                                 echo "<input type='hidden' name='item_price' value='".$row['Price']."'>";
                                 echo "<input type='hidden' name='item_image' value='".$row['image']."'>";
@@ -191,6 +195,7 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
                                 echo "<p class='food-detail'>".$row['description']."</p>";
 
                                 echo "<form method='POST' action=''>";
+                                echo "<input type='hidden' name='item_id' value='".$row['MenuItemID']."'>";
                                 echo "<input type='hidden' name='item_name' value='".$row['ItemName']."'>";
                                 echo "<input type='hidden' name='item_price' value='".$row['Price']."'>";
                                 echo "<input type='hidden' name='item_image' value='".$row['image']."'>";
@@ -234,6 +239,7 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
                                 echo "<p class='food-detail'>".$row['description']."</p>";
 
                                 echo "<form method='POST' action=''>";
+                                echo "<input type='hidden' name='item_id' value='".$row['MenuItemID']."'>";
                                 echo "<input type='hidden' name='item_name' value='".$row['ItemName']."'>";
                                 echo "<input type='hidden' name='item_price' value='".$row['Price']."'>";
                                 echo "<input type='hidden' name='item_image' value='".$row['image']."'>";
@@ -277,6 +283,7 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
                                 echo "<p class='food-detail'>".$row['description']."</p>";
 
                                 echo "<form method='POST' action=''>";
+                                echo "<input type='hidden' name='item_id' value='".$row['MenuItemID']."'>";
                                 echo "<input type='hidden' name='item_name' value='".$row['ItemName']."'>";
                                 echo "<input type='hidden' name='item_price' value='".$row['Price']."'>";
                                 echo "<input type='hidden' name='item_image' value='".$row['image']."'>";

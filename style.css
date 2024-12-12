@@ -1,3 +1,4 @@
+
 *{
     margin: 0 0;
     padding: 0 0;
@@ -30,7 +31,7 @@
 }
 /*pick your algorithm container text properties*/
 .text-white{
-    color:#DEE1DD;
+    color:#DEE1DD;                                                                                                                             ;
 }
 
 .clearfix{
@@ -116,10 +117,7 @@ body {
     
 }
 
-
-/******************************************************/
 /* CSSS for navbar section */
-/******************************************************/
 
 .logo{
     width: 10%;
@@ -140,9 +138,7 @@ body {
 }
 
 
-/******************************************************/
 /* CSS for Contact page section */
-/******************************************************/
 .contact-container{
     height:100vh;
     display: flex;
@@ -217,11 +213,8 @@ body {
     }
 
 }
- 
-
-/******************************************************/
+    
 /* CSS for Food Search Section */
-/******************************************************/
 
 .food-search{
     background-color: #28363D;
@@ -241,9 +234,8 @@ body {
 
 
 
-/******************************************************/
+
 /* CSS for Categories */
-/******************************************************/
 .categories{
     padding: 4% 0;
     color: white;
@@ -257,9 +249,7 @@ body {
 }
 
 
-/******************************************************/
 /* CSS for Food Menu */
-/******************************************************/
 .food-menu{
     background-color: black;     
     padding: 4% 0;
@@ -274,6 +264,7 @@ body {
     border-radius: 10px; /* Rounded corners for a polished look */
     margin-bottom: 20px; /* Adds spacing below the container */
     overflow: hidden; /* Ensures the content inside is fully contained */
+
 }
 
 .food-menu-box{
@@ -285,17 +276,25 @@ body {
     border-radius: 15px;
 }
 
-.food-menu-cart{
-    width: 41%;
+.food-menu-box-cart{
+    width: 90%;
     margin: 1%;
     padding: 2%;
     float: center;
     background-color: #DEE1DD;
+    color: black;
     border-radius: 15px;
 }
 .food-menu-img{
     width: 20%;
     float: left;
+}
+
+.food-menu-img-cart{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%; 
 }
 
 .food-menu-desc{
@@ -320,9 +319,7 @@ body {
 }
 
 
-/******************************************************/
 /* CSS for Social */
-/******************************************************/
 .social ul{
     list-style-type: none;
     
@@ -332,9 +329,7 @@ body {
     padding: 1%;
 }
 
-/******************************************************/
 /* for Order Section */
-/******************************************************/
 .order{
     width: 50%;
     margin: 0 auto;
@@ -353,148 +348,9 @@ body {
 }
 
 
-/******************************************************/
-/*CSS for Cart page*/
-/******************************************************/
-.cart-icon
-{
-    position: relative; 
-    display: inline-block;
-}
 
-.cart-icon span
-{
-    display: flex;
-    width: 22px;
-    height: 22px;
-    background-color: red;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 15%; 
-    right: -20px; 
-}
-
-.cart-items table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.cart-items th,.cart-items td {
-    padding: 10px;
-    text-align: center;
-    
-}
-.cart-items th{
-    color: #a9a9a9;
-    
-}
-.cart-items thead{
-    border-radius: 50px;
-    background-color: white;
-}
-
-.table_bottom
-{
-    display: flex; 
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    margin: 1rem 0 3rem 0 ;
-}
-
-.quantity_box
-{
-    display:flex; 
-    justify-content: space-between;
-    align-items: center;
-}
-.quantity_box input
-{
-    width: 40%; 
-    padding: 0.5rem; 
-}
-.update_quantity
-{
-    padding: 0.5rem; 
-    margin: 1rem 0; 
-}
-
-
-.cart-items
-{
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-    margin-top: 1rem;
-    justify-content: space-between;
-    padding: 10px 5px;
-    border-radius: 5px;
-    color: #2F575D;
-    border: none; 
-}
-
-.food-menu-box-cart thead{
-    width: 400px;
-    height: 50px;
-    border: none;
-    outline: none;
-    padding-left: 25px;
-    font-weight: 500;
-    color: #6D9197;
-    border-radius: 50px;
-}
-
-.total--amount
-{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid grey; 
-    border-radius: 5px; 
-    padding: 15px 10px; 
-}
-.cart-total
-{
-    font-size:16px;
-    color: white;
-    font-weight: 500;
-}
-
-.cart-items-price 
-{
-    color: white; 
-}
-
-.checkout-btn
-{
-    width: 100%; 
-    margin-top: 2rem;
-    background: green; 
-    color: white; 
-    cursor: pointer; 
-    border-radius: 5px;
-    padding:10px; 
-}
-
-
-.display_message {
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    background-color: white;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    display: block; /* Ensure it is not set to 'none' */
-}
-
-
-/******************************************************/
 /* CSS for Mobile Size or Smaller Screen */
-/******************************************************/
+
 @media only screen and (max-width:768px){
     .logo{
         width: 80%;
@@ -547,4 +403,170 @@ body {
     .order{
         width: 100%;
     }
+
+
+}
+
+.cart-icon
+{
+    position: relative; 
+    display: inline-block;
+ 
+}
+
+.cart-icon span
+{
+    display: flex;
+    width: 22px;
+    height: 22px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 15%; 
+    right: -20px; 
+
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td, tr {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+th
+{
+    background-color: grey;
+}
+
+tr
+{
+    background-color: white;
+
+}
+
+.table_bottom
+{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    margin: 1rem 0 3rem 0 ;
+    font-size: small;
+
+}
+.bottom_btn 
+{ color: black; 
+ 
+    background-color: white;  
+    padding: 1rem;
+} 
+.bottom_btn span {color:green; } 
+
+.delete_all_btn 
+{
+
+      font-size: 1.3rem;
+      padding: 1.5rem;
+      font-size: small;
+}
+
+.quantity_box
+{
+    display:flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+.quantity_box input
+{
+    width: 40%; 
+    padding: 0.5rem; 
+}
+.update_quantity
+{
+    padding: 0.5rem; 
+    margin: 1rem 0; 
+}
+
+
+.cart-items
+{
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    margin-top: 1rem;
+
+}
+
+.cart-items
+{
+    display: flex; 
+    justify-content: space-between;
+    padding: 10px 5px;
+    border-radius: 5px;
+    color: #2F575D;;
+    border: 1px solid grey; 
+    background-color:  #DEE1DD; 
+}
+
+
+
+.total--amount
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid grey; 
+    border-radius: 5px; 
+    padding: 15px 10px; 
+}
+.cart-total
+{
+    font-size:16px;
+    color: white;
+    font-weight: 500;
+}
+
+.cart-items-price 
+{
+    color: white; 
+}
+
+.checkout-btn
+{
+    width: 100%; 
+    margin-top: 2rem;
+    background: green; 
+    color: white; 
+    cursor: pointer; 
+    border-radius: 5px;
+    padding:10px; 
+}
+
+
+.display_message {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: block; /* Ensure it is not set to 'none' */
+}
+
+.img_size
+{
+    width: 20%
 }
