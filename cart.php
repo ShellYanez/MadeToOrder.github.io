@@ -150,7 +150,9 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
                     echo "<h4 style='text-align: center';>Your cart is empty.</h4>";
                  }
             ?>
-        
+            
+
+            </tbody>
             </table>
             <?php 
                if ($total > 0)
