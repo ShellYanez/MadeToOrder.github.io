@@ -1,5 +1,8 @@
 <?php  
 //defining all php variables before the start of the html
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL); 
 session_start();
 
 //- open link to database 
@@ -13,8 +16,23 @@ if(isset($_POST['update_product_quantity']))
    // echo $update_val; 
    $update_id= $_POST['update_quantity_id']; 
 
-   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET price = ((price / quantity) * $update_val), quantity = $update_val WHERE id = $update_id");
+   $update_quantity_query = mysqli_query($con, "UPDATE `cart` SET price = ((price / quantity) * $update_val), quantity = $update_val WHERE id = $update_id");
 
+}
+
+
+
+if (isset($_GET['remove']))
+{
+    $remove_id = $_GET['remove']; 
+    
+    mysqli_query($con, "DELETE FROM `cart` WHERE id=$remove_id"); 
+}
+
+if (isset($_GET['delete_all']))
+{
+    mysqli_query($con, "DELETE FROM `cart`");
+    header('location:cart.php');
 }
 
 //end php definitions
@@ -85,6 +103,7 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
         <table >
             <?php
                $select_cart_products = mysqli_query($con, "SELECT * from `cart`"); 
+               $total = 0;
                if(mysqli_num_rows($select_cart_products) > 0)
                {
                 echo "<thead>
@@ -117,33 +136,49 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
                         </td>
                     <td>$<?php echo $fetch_cart_products['price']?></td>
                     <td>
-                        <a href="">
+                        <a href="cart.php?remove=<?php echo $fetch_cart_products['id']?>" style = "color: black;" onclick = "return confirm('Are you sure you want to delete this item')">
                         <i class="fas fa-trash" style="color: DogerBlue;"></i>Remove</a>
                     </td>
                 </tr>
                 
             <?php
+
+                    $total = $total + ($fetch_cart_products['price']);
                 }
                     }     else
                 {
-                    echo "Your cart is empty.";
+                    echo "<h4 style='text-align: center';>Your cart is empty.</h4>";
                  }
             ?>
             
 
             </tbody>
             </table>
+            <?php 
+               if ($total > 0)
+               {
+                   echo"
+                   <div class=table_bottom id='total'>
+                       <a href='menu.php' class = 'bottom_btn'>Continue Shopping</a>
+                       <a href='' class='bottom_btn'>Cart Total: $<span>$total</span></p>
+                       <a href='checkout.php' class = 'bottom_btn'>Proceed to Checkout</a>
+                   </div>
+
+                   ";
+               
+            ?>
             
-<!--bottom section-->
-<div class=table_bottom id="total">
-<a href="menu.php" class = "bottom_btn">Continue Shopping</a>
-<a href="" class="bottom_btn">Cart Total: <span>$ 12.00</span></p>
-<a href="checkout.php" class = "bottom_btn">Proceed to Checkout</a>
-</div>
+
 
 <div class= "delete_all_btn">
-<i class="fas fa-trash"></i>Remove All</a>
+<i class="fas fa-trash"></i><a href="cart.php?delete_all" style= "color: black;">Remove All</a>
 </div>
+<?php
+               }else
+               {
+                echo ""; 
+               }
+?>
 
         </div>
         </div>

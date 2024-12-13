@@ -2,8 +2,8 @@
 -- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 10, 2024 at 05:42 PM
+-- Host: localhost:3306
+-- Generation Time: Dec 13, 2024 at 01:03 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.3.1
 
@@ -34,6 +34,14 @@ CREATE TABLE `cart` (
   `quantity` int(20) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`name`, `price`, `image`, `quantity`, `id`) VALUES
+('Linked-List Sausage', '5.00', '1733273092.jpeg', 1, 40),
+('Homestyle 4-Stack Pancake', '12.00', '1733272975.jpeg', 2, 39);
 
 -- --------------------------------------------------------
 
@@ -85,19 +93,6 @@ INSERT INTO `menuitem` (`MenuItemID`, `ItemName`, `Price`, `Category`, `image`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
---
-
-CREATE TABLE `order` (
-  `OrderID` int(11) NOT NULL,
-  `CustomerID` int(11) NOT NULL COMMENT 'foreign key pointing to Customer table',
-  `OrderTime` datetime NOT NULL,
-  `TotalAmount` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orderdetail`
 --
 
@@ -106,6 +101,22 @@ CREATE TABLE `orderdetail` (
   `MenuItemID` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL,
   `Subtotal` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `OrderID` int(11) NOT NULL,
+  `customerName` varchar(55) NOT NULL COMMENT 'foreign key pointing to Customer table',
+  `customerEmail` varchar(200) NOT NULL,
+  `customerPhone` varchar(15) NOT NULL,
+  `CreditCard` varchar(20) NOT NULL,
+  `OrderTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `TotalAmount` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -127,20 +138,20 @@ CREATE TABLE `payment` (
 --
 
 --
--- Indexes for table `cart`
+-- Indexes for table `orders`
 --
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`OrderID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `cart`
+-- AUTO_INCREMENT for table `orders`
 --
-ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `orders`
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

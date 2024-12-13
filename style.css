@@ -435,6 +435,7 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
+
 }
 
 table, th, td, tr {
@@ -569,4 +570,12 @@ tr
 .img_size
 {
     width: 20%
+}
+
+.form-group
+{
+    background-color: white;
+    padding: 2%;
+    float: center; 
+
 }
