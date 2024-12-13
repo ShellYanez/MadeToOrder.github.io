@@ -15,7 +15,7 @@ $total = 0;
 // Calculate total price
 if (mysqli_num_rows($cart_query) > 0) {
     while ($cart_item = mysqli_fetch_assoc($cart_query)) {
-        $total += $cart_item['price'];
+        $total += $cart_item['price'] * $cart_item['quantity'];
     }
 }
 
