@@ -157,7 +157,7 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
             <?php 
                if ($total > 0)
                {
-                   echo
+                   echo"
                    <div class=table_bottom id='total'>
                        <a href='menu.php' class = 'bottom_btn'>Continue Shopping</a>
                        <a href='' class='bottom_btn'>Cart Total: $<span>$total</span></p>
