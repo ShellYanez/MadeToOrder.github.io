@@ -158,8 +158,6 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
                <br>
                <br>
                 <h3 class="text-center" style="color: grey;"> Enter Payment Information</h3>
-
-                <div style="background-color: white;">
                 <div class="form-group">
                     <label for="customer_name" style>Name:</label>
                     <input type="text" placeholder="Enter your Name" name="customer_name"  required>
@@ -178,11 +176,9 @@ $total_quantity = mysqli_fetch_assoc($total_quantity_query)['total_quantity'] ??
                 </div>
                 <br>
                 <input type="submit" name="place_order" class="btn form-group" placeholder="Place Order">
-                </div>
             </form>
             <br>
-            <br>
-            <a href="cart.php" class="btn form-group style="background-color: white;"">Back to Cart</a>
+            <a href="cart.php" class="btn form-group">Back to Cart</a>
         </div>
     </section>
 </body>
