@@ -31,21 +31,6 @@ if(isset($_POST['add_category_btn'])){
     VALUES ('$name', '$price', '$category', '$filename', '$description')";
     
     
-    //----------------------------------------------------------------
-    //an attempt to use prepared statements to prevent sql injection.
-    //kept getting error of data truncation for Category
-    
-    /*
-    $values =['$name', '$price', '$category', '$filename', '$description'];
-    //write queries for insertion
-    //note use $filename instead of $image
-    $item_query = $con->prepare("INSERT INTO MenuItem (ItemName, Price, Category, image, description) 
-    VALUES (?, ?, ?, ?, ?)");
-    
-    $item_query->bind_param ('sdsss', ...$values);
-    $item_query->execute();*/
-    //----------------------------------------------------------------
-    
 
     //insert into database
     $item_query_run=mysqli_query($con, $item_query);
@@ -57,14 +42,15 @@ if(isset($_POST['add_category_btn'])){
     if($item_query_run){
         move_uploaded_file($_FILES['image']['tmp_name'], $path.'/'.$filename);
         
-        header("location: addMenuItems.php");
-        exit();
+        //success message
+        echo "<script>alert('Menu item added successfully!'); window.location.href = 'addMenuItems.php';</script>";
+   
     }
     else{ 
-        echo "Something went wrong";
-        header("location: addMenuItems.php");
-        exit();
+        echo "<script>alert('Something went wrong.'); window.location.href = 'addMenuItems.php';</script>";
     }
+    
+       
     
         
         
