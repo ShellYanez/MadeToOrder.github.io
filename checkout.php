@@ -39,7 +39,7 @@ if (isset($_POST['place_order'])) {
         while ($cart_item = mysqli_fetch_assoc($cart_query)) {
             $menu_item_id = $cart_item['id']; // Assuming `id` is the MenuItemID
             $quantity = $cart_item['quantity'];
-            $subtotal = $cart_item['price']; // Total price for this item
+            $subtotal = $cart_item['price'] * $cart_item['quantity']; // Total price for this item
 
             // Insert into `orderdetails` table
             $details_query = mysqli_query($con, "INSERT INTO `orderdetail` (OrderID, MenuItemID, Quantity, Subtotal) 
